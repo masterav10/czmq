@@ -72,8 +72,7 @@ build_script:
   - cmd: |
       cd "%APPVEYOR_BUILD_FOLDER%"
       cd bindings\jni
-      gradlew.bat build jar -PbuildPrefix="C:\tmp\ci_build" -x test --info
-      gradlew.bat publishToMavenLocal -PisRelease
+      gradlew.bat build jar publishToMavenLocal -PisRelease -PbuildPrefix="C:\tmp\ci_build" -x test --info
       
 after_build:
   - cmd: cd "%CZMQ_BUILDDIR%\%Configuration%"
